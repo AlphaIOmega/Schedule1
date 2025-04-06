@@ -1,0 +1,1002 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.Name }} - Product Details{% endblock %}
+
+{% block head %}
+<style>
+    /* Additional styles specific to this page */
+    .product-colors {
+        display: flex;
+        margin-top: 15px;
+    }
+    
+    .color-swatch {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+    
+    .property-pill {
+        display: inline-flex;
+        flex-direction: column;
+        padding: 10px 15px;
+        margin: 8px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        /* Remove background so the color will be fully applied via JavaScript */
+        background: none; 
+        /* Add a subtle text shadow for better readability */
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        /* Add a subtle border for definition */
+        border: 2px solid rgba(0,0,0,0.08);
+        min-width: 120px;
+        max-width: 200px;
+    }
+    
+    .property-pill:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        /* Increase brightness on hover */
+        filter: brightness(1.1);
+    }
+    
+    .property-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .property-multiplier {
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+        background-color: rgba(0,0,0,0.15);
+        padding: 2px 6px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    
+    .property-type {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+        font-style: italic;
+    }
+    
+    .property-desc {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .product-properties {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 0;
+    }
+    
+    .crafting-tree {
+        margin-top: 30px;
+    }
+    
+    .crafting-step {
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        border-left: 6px solid #666;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .crafting-step:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateX(3px);
+    }
+    
+    .crafting-step .ingredients {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .crafting-step .plus {
+        margin: 0 10px;
+        color: #999;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .ingredient-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px 10px;
+        background-color: #f5f5f5;
+    }
+    
+    .ingredient-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    
+    .strain-bubble {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        margin: 5px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .strain-bubble:hover {
+        transform: scale(1.05);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+    
+    .drug-type-badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    
+    .type-0 {
+        background-color: #4CAF50;
+        color: white;
+    }
+    
+    .type-1 {
+        background-color: #2196F3;
+        color: white;
+    }
+    
+    .type-2 {
+        background-color: #F44336;
+        color: white;
+    }
+    
+    /* Mix count badge styles */
+    .mix-count-display {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-left: 15px;
+        color: white;
+    }
+    
+    .mix-count-0 {
+        background-color: #4CAF50; /* Green for base products */
+    }
+    
+    .mix-count-1 {
+        background-color: #8BC34A; /* Light green */
+    }
+    
+    .mix-count-2 {
+        background-color: #CDDC39; /* Lime */
+    }
+    
+    .mix-count-3 {
+        background-color: #FFEB3B; /* Yellow */
+        color: #333; /* Dark text for visibility */
+    }
+    
+    .mix-count-4 {
+        background-color: #FFC107; /* Amber */
+        color: #333; /* Dark text for visibility */
+    }
+    
+    .mix-count-5 {
+        background-color: #FF9800; /* Orange */
+    }
+    
+    .mix-count-6 {
+        background-color: #FF5722; /* Deep Orange */
+    }
+    
+    .mix-count-7 {
+        background-color: #F44336; /* Red */
+    }
+    
+    .mix-count-8 {
+        background-color: #E91E63; /* Pink */
+    }
+    
+    .mix-count-9 {
+        background-color: #9C27B0; /* Purple */
+    }
+    
+    .mix-count-10-plus {
+        background-color: #673AB7; /* Deep Purple */
+    }
+    
+    .product-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .efficiency-badge {
+        background-color: #009688;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        margin-left: auto;
+    }
+    
+    /* Additives checkbox styles */
+    .additives-checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .additive-checkbox {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        background-color: #f0f0f0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #ddd;
+    }
+    
+    .additive-checkbox:hover {
+        background-color: #e8e8e8;
+    }
+    
+    .additive-checkbox.selected {
+        background-color: #e1f5fe;
+        border-color: #2196F3;
+    }
+    
+    .additive-checkbox input {
+        margin-right: 8px;
+    }
+    
+    .additive-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .additive-name {
+        font-weight: bold;
+    }
+    
+    .additive-cost {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    .additive-effect {
+        font-size: 0.8rem;
+        color: #4CAF50;
+        font-style: italic;
+    }
+    
+    /* Dark mode support for additives checkboxes */
+    body.dark-mode .additive-checkbox {
+        background-color: #333;
+        border-color: #444;
+    }
+    
+    body.dark-mode .additive-checkbox:hover {
+        background-color: #3a3a3a;
+    }
+    
+    body.dark-mode .additive-checkbox.selected {
+        background-color: #1a365d;
+        border-color: #90caf9;
+    }
+    
+    body.dark-mode .additive-cost {
+        color: #aaa;
+    }
+    
+    body.dark-mode .additive-effect {
+        color: #81c784;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <a href="/" class="back-btn">&larr; Back to Products</a>
+    
+    <div class="product-header">
+        <h2>{{ product.Name }}</h2>
+        
+        <div class="product-meta">
+            <div class="drug-type-badge type-{{ product.DrugType }}">
+                {% if product.DrugType == 0 %}
+                    Weed
+                {% elif product.DrugType == 1 %}
+                    Meth
+                {% elif product.DrugType == 2 %}
+                    Cocaine
+                {% else %}
+                    Unknown
+                {% endif %}
+            </div>
+            
+            <!-- Mix Count -->
+            {% set mix_class = "mix-count-" ~ mix_count if mix_count < 10 else "mix-count-10-plus" %}
+            <div class="mix-count-display {{ mix_class }}">
+                <span class="icon">🧪</span> {{ mix_count }} {% if mix_count == 1 %}mix{% else %}mixes{% endif %} required
+            </div>
+        </div>
+
+        <div class="product-section cost-analysis-section">
+            <h3>Cost Analysis</h3>
+            
+            {% if drug_type %}
+            <!-- Agriculture Cost Analysis -->
+            <div class="cost-subsection">
+                <h4>Agriculture Costs</h4>
+                
+                <div class="agriculture-options">
+                    {% if drug_type == "weed" or drug_type == "cocaine" %}
+                    <div class="option-group">
+                        <label for="soil-type">Soil Type:</label>
+                        <select id="soil-type" class="ag-option">
+                            {% for soil_id, soil_data in agriculture_options.soils.items() %}
+                            <option value="{{ soil_id }}" data-capacity="{{ soil_data.capacity }}" data-cost="{{ soil_data.cost }}">
+                                {{ soil_id }} (${{ soil_data.cost }}) - {{ soil_data.capacity }} seed{% if soil_data.capacity > 1 %}s{% endif %}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label>Additives (Select up to 3):</label>
+                        <div class="additives-checkboxes" id="additives-container">
+                            {% for additive_id, additive_data in agriculture_options.additives.items() %}
+                            <label class="additive-checkbox" for="additive-{{ additive_id }}">
+                                <input type="checkbox" id="additive-{{ additive_id }}" class="additive-option" 
+                                       value="{{ additive_id }}" 
+                                       data-cost="{{ additive_data.cost }}" 
+                                       data-yield-increase="{{ 'true' if additive_data.yield_increase else 'false' }}">
+                                <div class="additive-info">
+                                    <span class="additive-name">{{ additive_id }}</span>
+                                    <span class="additive-cost">${{ additive_data.cost }}</span>
+                                    {% if additive_data.yield_increase %}
+                                    <span class="additive-effect">Increases Yield</span>
+                                    {% endif %}
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if drug_type == "meth" %}
+                    <div class="option-group">
+                        <label for="pseudo-type">Pseudo Type:</label>
+                        <select id="pseudo-type" class="ag-option">
+                            {% for pseudo_id, pseudo_data in agriculture_options.pseudo.items() %}
+                            <option value="{{ pseudo_id }}" data-cost="{{ pseudo_data.cost }}">
+                                {{ pseudo_id }} (${{ pseudo_data.cost }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="agriculture-results">
+                    <p><strong>Yield:</strong> <span id="agriculture-yield">0</span> units</p>
+                    <p><strong>Cost per Unit:</strong> $<span id="unit-cost">0.00</span></p>
+                </div>
+            </div>
+            
+            <!-- Total Cost Analysis -->
+            <div class="cost-subsection total-cost">
+                <h4>Total Cost Analysis</h4>
+                <p><strong>Agriculture Production Cost:</strong> $<span id="total-agriculture-cost">0.00</span></p>
+                <p><strong>Mixing Ingredients Cost:</strong> $<span id="total-mixing-cost">{{ ingredient_cost }}</span> <span id="base-ingredient-cost" style="display:none">{{ ingredient_cost }}</span></p>
+                
+                {% if drug_type == "weed" %}
+                <p><strong>Combined Total Cost per Bud:</strong> $<span id="combined-cost">{{ ingredient_cost }}</span></p>
+                {% endif %}
+                {% if drug_type == "cocaine" %}
+                <p><strong>Combined Total Cost per 8 Ball:</strong> $<span id="combined-cost">{{ ingredient_cost }}</span></p>
+                {% endif %}
+                {% if drug_type == "meth" %}
+                <p><strong>Combined Total Cost per Crystal:</strong> $<span id="combined-cost">{{ ingredient_cost }}</span></p>
+                {% endif %}               
+                
+                <p><strong>Selling Price:</strong> ${{ price }}</p>
+                <p><strong>Net Profit:</strong> $<span id="net-profit">{{ price - ingredient_cost }}</span> 
+                   (<span id="profit-percentage">{{ ((price - ingredient_cost) / price * 100) | round(1) }}</span>%)</p>
+            </div>
+            {% endif %}
+        
+        <!-- CSS for the cost analysis section -->
+        <style>
+            .cost-analysis-section {
+                margin-top: 20px;
+            }
+            
+            .cost-subsection {
+                margin-bottom: 20px;
+                padding: 15px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                border-left: 4px solid #0066cc;
+            }
+            
+            .total-cost {
+                background-color: #f0f7ff;
+                border-left-color: #004499;
+            }
+            
+            .agriculture-options {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .option-group {
+                display: flex;
+                flex-direction: column;
+                min-width: 200px;
+            }
+            
+            .option-group label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            
+            .option-group select {
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+            }
+            
+            .agriculture-results {
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px solid #eee;
+            }
+            
+            /* Dark mode styles */
+            body.dark-mode .cost-subsection {
+                background-color: #2a2a2a;
+                border-left-color: #4d9cf7;
+            }
+            
+            body.dark-mode .total-cost {
+                background-color: #1a2a3a;
+                border-left-color: #7fb5f5;
+            }
+            
+            body.dark-mode .option-group select {
+                background-color: #333;
+                color: #eee;
+                border-color: #444;
+            }
+            .additional-cost-note {
+                color: #FF5722;
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+                display: block;
+            }
+    
+            body.dark-mode .additional-cost-note {
+                color: #FF9800;
+            }
+        
+            .profit-positive {
+                color: #4CAF50;
+                font-weight: bold;
+            }
+            
+            .profit-negative {
+                color: #F44336;
+                font-weight: bold;
+            }
+        </style>
+        </div>
+    
+    <div class="product-section">
+        <h3>Appearance</h3>
+        <div class="product-appearance">
+            <div class="product-color-large" style="background: linear-gradient(135deg, 
+                rgb({{ product.AppearanceSettings.MainColor.r }}, 
+                    {{ product.AppearanceSettings.MainColor.g }}, 
+                    {{ product.AppearanceSettings.MainColor.b }}) 0%, 
+                rgb({{ product.AppearanceSettings.SecondaryColor.r }}, 
+                    {{ product.AppearanceSettings.SecondaryColor.g }}, 
+                    {{ product.AppearanceSettings.SecondaryColor.b }}) 100%);">
+            </div>
+            
+            <div class="product-colors">
+                <div>
+                    <div class="color-swatch" style="background-color: rgb({{ product.AppearanceSettings.MainColor.r }}, 
+                                                               {{ product.AppearanceSettings.MainColor.g }}, 
+                                                               {{ product.AppearanceSettings.MainColor.b }});"></div>
+                    <div>Main Color</div>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background-color: rgb({{ product.AppearanceSettings.SecondaryColor.r }}, 
+                                                               {{ product.AppearanceSettings.SecondaryColor.g }}, 
+                                                               {{ product.AppearanceSettings.SecondaryColor.b }});"></div>
+                    <div>Secondary Color</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-section">
+        <h3>Properties</h3>
+        <div class="product-properties">
+            {% if product.Properties %}
+                {% for property in product.Properties %}
+                    <div class="property-pill" id="property-{{ property }}">
+                        <div class="property-name">{{ property }}</div>
+                        {% if property in effects_data %}
+                            {% if effects_data[property].multiplier %}
+                                <div class="property-multiplier">{{ effects_data[property].multiplier }}</div>
+                            {% endif %}
+                            <div class="property-type">{{ effects_data[property].type }}</div>
+                            <div class="property-desc">{{ effects_data[property].description }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No properties available for this product.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="product-section">
+        <h3>Crafting Recipe</h3>
+        <div class="crafting-tree">
+            {% if crafting_tree %}
+                {% for step in crafting_tree %}
+                    {% if step.id in product_details and product_details[step.id].AppearanceSettings %}
+                        <div class="crafting-step" style="
+                            background: linear-gradient(135deg, 
+                                rgba({{ product_details[step.id].AppearanceSettings.MainColor.r }}, 
+                                    {{ product_details[step.id].AppearanceSettings.MainColor.g }}, 
+                                    {{ product_details[step.id].AppearanceSettings.MainColor.b }}, 0.2) 0%, 
+                                rgba({{ product_details[step.id].AppearanceSettings.SecondaryColor.r }}, 
+                                    {{ product_details[step.id].AppearanceSettings.SecondaryColor.g }}, 
+                                    {{ product_details[step.id].AppearanceSettings.SecondaryColor.b }}, 0.2) 100%);
+                            border-left-color: rgb({{ product_details[step.id].AppearanceSettings.MainColor.r }}, 
+                                               {{ product_details[step.id].AppearanceSettings.MainColor.g }}, 
+                                               {{ product_details[step.id].AppearanceSettings.MainColor.b }});">
+                    {% else %}
+                        <div class="crafting-step">
+                    {% endif %}
+                        <div class="result">
+                            <strong>{{ product_details[step.id].Name if step.id in product_details else step.name }}</strong>
+                            {% if step.id in mix_counts %}
+                                <small>({{ mix_counts[step.id] }} {% if mix_counts[step.id] == 1 %}mix{% else %}mixes{% endif %})</small>
+                            {% endif %}
+                        </div>
+                        
+                        {% if step.ingredients %}
+                            <div class="ingredients">
+                                <span>Recipe:</span>
+                                {% for ingredient in step.ingredients %}
+                                    {% if loop.index > 1 %}
+                                        <span class="plus">+</span>
+                                    {% endif %}
+                                    
+                                    {% if ingredient.id in product_details %}
+                                        <!-- This is a strain product, display as a bubble -->
+                                        <div class="strain-bubble" style="background: linear-gradient(135deg, 
+                                            {% if product_details[ingredient.id].AppearanceSettings %}
+                                                rgb({{ product_details[ingredient.id].AppearanceSettings.MainColor.r }}, 
+                                                    {{ product_details[ingredient.id].AppearanceSettings.MainColor.g }}, 
+                                                    {{ product_details[ingredient.id].AppearanceSettings.MainColor.b }}) 0%, 
+                                                rgb({{ product_details[ingredient.id].AppearanceSettings.SecondaryColor.r }}, 
+                                                    {{ product_details[ingredient.id].AppearanceSettings.SecondaryColor.g }}, 
+                                                    {{ product_details[ingredient.id].AppearanceSettings.SecondaryColor.b }}) 100%
+                                            {% else %}
+                                                #888 0%, #555 100%
+                                            {% endif %}
+                                            );"
+                                            title="{{ ingredient.name }}"
+                                            onclick="window.location.href='{{ url_for('product_detail', product_id=ingredient.id) }}'">
+                                            {{ product_details[ingredient.id].Name if ingredient.id in product_details else ingredient.name }}
+                                            {% if ingredient.id in mix_counts %}
+                                                <small>({{ mix_counts[ingredient.id] }})</small>
+                                            {% endif %}
+                                        </div>
+                                    {% else %}
+                                        <!-- This is a base ingredient, display with icon if available -->
+                                        <div class="ingredient-item">
+                                            {% if ingredient.id|lower in ['addy', 'banana', 'battery', 'chili', 'cuke', 'donut', 'energydrink', 'flumedicine', 'gasoline', 'horsesemen', 'iodine', 'megabean', 'motoroil', 'mouthwash', 'paracetamol', 'viagra'] %}
+                                                <img src="{{ url_for('static', filename='images/items/' + ingredient.id|lower + '.png') }}" alt="{{ ingredient.name }}" class="ingredient-icon" onerror="this.style.display='none'">
+                                            {% endif %}
+                                            <span>{{ ingredient.name }}</span>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="no-recipe">This is a base product with no recipe.</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No crafting recipe available for this product.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all additives checkboxes
+    const additiveCheckboxes = document.querySelectorAll('.additive-option');
+    
+    // Add event listeners for each checkbox
+    additiveCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Get all selected checkboxes
+            const selectedCheckboxes = document.querySelectorAll('.additive-option:checked');
+            
+            // If more than 3 are selected, uncheck the current one
+            if (selectedCheckboxes.length > 3) {
+                this.checked = false;
+                alert('You can select a maximum of 3 additives');
+                return;
+            }
+            
+            // Toggle selected class for styling
+            const checkboxLabel = this.closest('.additive-checkbox');
+            if (this.checked) {
+                checkboxLabel.classList.add('selected');
+            } else {
+                checkboxLabel.classList.remove('selected');
+            }
+            
+            // Update the costs
+            updateAgricultureCosts();
+        });
+    });
+    
+    // Get all agriculture option selects
+    const agOptions = document.querySelectorAll('.ag-option');
+    
+    // Add event listeners to update costs when options change
+    agOptions.forEach(option => {
+        option.addEventListener('change', updateAgricultureCosts);
+    });
+    
+    // Initial calculation
+    updateAgricultureCosts();
+
+function updateAgricultureCosts() {
+    const drugType = '{{ drug_type }}';
+    
+    // Get selected soil type
+    let soilType = 'Soil';
+    if (drugType === 'weed' || drugType === 'cocaine') {
+        const soilSelect = document.getElementById('soil-type');
+        if (soilSelect && soilSelect.value) {
+            soilType = soilSelect.value;
+        }
+    }
+    
+    // Get selected additives (multiple)
+    let additives = [];
+    if (drugType === 'weed' || drugType === 'cocaine') {
+        const selectedAdditives = document.querySelectorAll('.additive-option:checked');
+        selectedAdditives.forEach(additive => {
+            additives.push(additive.value);
+        });
+    }
+    
+    // Get selected pseudo type
+    let pseudoType = 'Pseudo';
+    if (drugType === 'meth') {
+        const pseudoSelect = document.getElementById('pseudo-type');
+        if (pseudoSelect && pseudoSelect.value) {
+            pseudoType = pseudoSelect.value;
+        }
+    }
+    
+    // Calculate the mixing cost (from the ingredient cost)
+    const mixingCost = parseFloat(document.getElementById('base-ingredient-cost').textContent);
+    
+    // Send AJAX request to calculate costs
+    fetch('/api/calculate-agriculture-cost', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            drug_type: drugType,
+            soil_type: soilType,
+            additives: additives,  // Send as array for multiple additives
+            pseudo_type: pseudoType,
+            mixing_cost: mixingCost,
+            selling_price: {{ price }}
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update the agriculture cost display elements
+        document.getElementById('agriculture-yield').textContent = data.yield.toFixed(2);
+        document.getElementById('unit-cost').textContent = data.unit_cost.toFixed(2);
+        
+        // Update total cost fields
+        document.getElementById('total-agriculture-cost').textContent = data.total_cost.toFixed(2);
+        document.getElementById('total-mixing-cost').textContent = mixingCost.toFixed(2);
+        
+        const combinedCost = data.combined_cost;
+        document.getElementById('combined-cost').textContent = combinedCost.toFixed(2);
+        
+        // Update profit calculations
+        document.getElementById('net-profit').textContent = data.net_profit.toFixed(2);
+        
+        const profitPercentage = (data.net_profit / {{ price }} * 100).toFixed(1);
+        document.getElementById('profit-percentage').textContent = profitPercentage;
+        
+        // Add classes for profit/loss indication
+        const netProfitElement = document.getElementById('net-profit');
+        if (data.net_profit > 0) {
+            netProfitElement.classList.add('profit-positive');
+            netProfitElement.classList.remove('profit-negative');
+        } else {
+            netProfitElement.classList.add('profit-negative');
+            netProfitElement.classList.remove('profit-positive');
+        }
+    })
+    .catch(error => {
+        console.error('Error calculating agriculture costs:', error);
+    });
+}
+
+</script>
+
+<script src="{{ url_for('static', filename='js/effects.js') }}"></script>
+<script>
+    // Function to update property pill colors based on current theme
+function updatePropertyPillColors() {
+    // Get all property pills
+    const propertyPills = document.querySelectorAll('.property-pill');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    
+    // Apply color to each pill based on the effect name and current theme
+    propertyPills.forEach(pill => {
+        const effectNameElement = pill.querySelector('.property-name');
+        if (!effectNameElement) return;
+        
+        const effectName = effectNameElement.textContent.trim();
+        let color = getEffectColor(effectName);
+        
+        // Default text color for light mode
+        let textColor = '#222';
+        
+        // For dark mode, we'll always use white text
+        if (isDarkMode) {
+            textColor = '#fff';
+            // Make background darker in dark mode for better contrast
+            pill.style.backgroundColor = adjustColorBrightness(color, -30) + 'aa'; // 67% opacity
+        } else {
+            // For light mode, calculate if we need dark or light text
+            const brightness = getBrightness(color);
+            textColor = brightness > 170 ? '#222' : '#fff'; // Higher threshold for better readability
+            pill.style.backgroundColor = color + '99'; // 60% opacity
+        }
+        
+        // Set text color
+        pill.style.color = textColor;
+        
+        // Add a bold colored border, thicker - using color directly instead of undefined variables
+        const borderWidth = '3px';
+        const borderColor = adjustColorBrightness(color, isDarkMode ? 10 : -20);
+        pill.style.border = `${borderWidth} solid ${borderColor}`;
+        
+        // Add appropriate shadows based on theme
+        if (isDarkMode) {
+            pill.style.boxShadow = `inset 0 0 0 1px rgba(255,255,255,0.1), 0 2px 5px rgba(0,0,0,0.5)`;
+        } else {
+            pill.style.boxShadow = `inset 0 0 0 1px rgba(255,255,255,0.2), 0 2px 5px rgba(0,0,0,0.15)`;
+        }
+    });
+}
+    
+    // Function to adjust color brightness
+    function adjustColorBrightness(color, percent) {
+        let r, g, b;
+        
+        // Handle RGB format: rgb(123, 123, 123)
+        if (color.startsWith('rgb')) {
+            const rgbValues = color.match(/\d+/g);
+            if (rgbValues && rgbValues.length >= 3) {
+                r = parseInt(rgbValues[0]);
+                g = parseInt(rgbValues[1]);
+                b = parseInt(rgbValues[2]);
+            }
+        }
+        // Handle hex format: #RRGGBB
+        else if (color.startsWith('#')) {
+            const hex = color.substring(1);
+            r = parseInt(hex.substr(0, 2), 16);
+            g = parseInt(hex.substr(2, 2), 16);
+            b = parseInt(hex.substr(4, 2), 16);
+        }
+        // Default if we can't parse the color
+        else {
+            return color;
+        }
+        
+        // Adjust brightness
+        r = Math.max(0, Math.min(255, r + Math.floor(r * percent / 100)));
+        g = Math.max(0, Math.min(255, g + Math.floor(g * percent / 100)));
+        b = Math.max(0, Math.min(255, b + Math.floor(b * percent / 100)));
+        
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+    
+    // Helper function to determine color brightness
+    function getBrightness(color) {
+        // Handle RGB format: rgb(123, 123, 123)
+        if (color.startsWith('rgb')) {
+            const rgbValues = color.match(/\d+/g);
+            if (rgbValues && rgbValues.length >= 3) {
+                const r = parseInt(rgbValues[0]);
+                const g = parseInt(rgbValues[1]);
+                const b = parseInt(rgbValues[2]);
+                return (r * 299 + g * 587 + b * 114) / 1000;
+            }
+        }
+        
+        // Handle hex format: #RRGGBB
+        if (color.startsWith('#')) {
+            const hex = color.substring(1);
+            const r = parseInt(hex.substr(0, 2), 16);
+            const g = parseInt(hex.substr(2, 2), 16);
+            const b = parseInt(hex.substr(4, 2), 16);
+            return (r * 299 + g * 587 + b * 114) / 1000;
+        }
+        
+        // Default if we can't parse the color
+        return 200;
+    }
+    
+    // Apply colors on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make sure getEffectColor is available
+        if (typeof getEffectColor !== 'function') {
+            console.error('getEffectColor function is not defined. Check if effects.js is loaded correctly.');
+            return;
+        }
+        
+        try {
+            updatePropertyPillColors();
+            
+            // Add hover effects to strain bubbles
+            const strainBubbles = document.querySelectorAll('.strain-bubble');
+            strainBubbles.forEach(bubble => {
+                bubble.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = document.body.classList.contains('dark-mode') ?
+                        '0 4px 8px rgba(0,0,0,0.5)' : '0 4px 8px rgba(0,0,0,0.3)';
+                });
+                
+                bubble.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = document.body.classList.contains('dark-mode') ?
+                        '0 2px 4px rgba(0,0,0,0.4)' : '0 2px 4px rgba(0,0,0,0.2)';
+                });
+            });
+        } catch (error) {
+            console.error('Error in product_detail.js:', error);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const soilSelect = document.getElementById('soil-type');
+    const additiveCheckboxes = document.querySelectorAll('.additive-option');
+    const pseudoSelect = document.getElementById('pseudo-type');
+    const mixingCost = parseFloat(document.getElementById('base-ingredient-cost')?.textContent || '0');
+    const sellingPrice = {{ price|default(0) }};
+
+    const updateDisplay = (data) => {
+        const { total_cost, yield, unit_cost, combined_cost, net_profit } = data;
+
+        document.getElementById('agriculture-yield').textContent = yield.toFixed(2);
+        document.getElementById('unit-cost').textContent = unit_cost.toFixed(2);
+        document.getElementById('total-agriculture-cost').textContent = total_cost.toFixed(2);
+        document.getElementById('combined-cost').textContent = combined_cost.toFixed(2);
+        document.getElementById('net-profit').textContent = net_profit.toFixed(2);
+        
+        const percentage = (net_profit / sellingPrice * 100).toFixed(1);
+        document.getElementById('profit-percentage').textContent = percentage;
+
+        const netProfitEl = document.getElementById('net-profit');
+        if (net_profit >= 0) {
+            netProfitEl.classList.add('profit-positive');
+            netProfitEl.classList.remove('profit-negative');
+        } else {
+            netProfitEl.classList.add('profit-negative');
+            netProfitEl.classList.remove('profit-positive');
+        }
+    };
+
+    const calculateCosts = () => {
+        const drugType = '{{ drug_type }}';
+        const soilType = soilSelect?.value || 'Soil';
+        
+        // Get all selected additives
+        const selectedAdditives = [];
+        additiveCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedAdditives.push(checkbox.value);
+            }
+        });
+
+        const pseudoType = pseudoSelect?.value || 'Pseudo';
+
+        fetch('/api/calculate-agriculture-cost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                drug_type: drugType,
+                soil_type: soilType,
+                additives: selectedAdditives,
+                pseudo_type: pseudoType,
+                mixing_cost: mixingCost,
+                selling_price: sellingPrice
+            })
+        })
+        .then(response => response.json())
+        .then(updateDisplay)
+        .catch(error => {
+            console.error('Error calculating costs:', error);
+        });
+    };
+
+    // Add event listeners to soil select
+    if (soilSelect) {
+        soilSelect.addEventListener('change', calculateCosts);
+    }
+    
+    // Add event listeners to all additive checkboxes
+    additiveCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calculateCosts);
+    });
+    
+    // Add event listener to pseudo select
+    if (pseudoSelect) {
+        pseudoSelect.addEventListener('change', calculateCosts);
+    }
+
+    // Initial calculation
+    calculateCosts();
+});
+</script>
+
+{% endblock %}
+        

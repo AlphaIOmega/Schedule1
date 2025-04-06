@@ -1,0 +1,249 @@
+{
+  "effects": [
+    {
+      "name": "Anti-Gravity",
+      "multiplier": "x0.54",
+      "type": "Ability",
+      "description": "Causes user to jump higher.",
+      "color": "rgb(35, 91, 203)"
+    },
+    {
+      "name": "Athletic",
+      "multiplier": "x0.32",
+      "type": "Ability",
+      "description": "Causes user to run faster.",
+      "color": "rgb(117, 200, 253)"
+    },
+    {
+      "name": "Balding",
+      "multiplier": "x0.30",
+      "type": "Cosmetic",
+      "description": "Causes user to be bald.",
+      "color": "rgb(199, 146, 50)"
+    },
+    {
+      "name": "Bright-Eyed",
+      "multiplier": "x0.40",
+      "type": "Ability",
+      "description": "Causes user's eyes to shine flashlight beams.",
+      "color": "rgb(190, 247, 253)"
+    },
+    {
+      "name": "Calming",
+      "multiplier": "x0.10",
+      "type": "Cosmetic",
+      "description": "Causes user to have chromatic aberration around screen",
+      "color": "rgb(254, 208, 155)"
+    },
+    {
+      "name": "Calorie-Dense",
+      "multiplier": "x0.28",
+      "type": "Cosmetic",
+      "description": "Causes user to appear fat.",
+      "color": "rgb(254, 132, 244)"
+    },
+    {
+      "name": "Cyclopean",
+      "multiplier": "x0.56",
+      "type": "Cosmetic",
+      "description": "Causes user to only have one eye.",
+      "color": "rgb(254, 193, 116)"
+    },
+    {
+      "name": "Disorienting",
+      "multiplier": "x0.00",
+      "type": "",
+      "description": "",
+      "color": "rgb(254, 117, 81)"
+    },
+    {
+      "name": "Electrifying",
+      "multiplier": "x0.50",
+      "type": "Cosmetic",
+      "description": "Causes lightning effect on user.",
+      "color": "rgb(85, 200, 253)"
+    },
+    {
+      "name": "Energizing",
+      "multiplier": "x0.22",
+      "type": "Ability",
+      "description": "Causes user to run faster.",
+      "color": "rgb(154, 254, 109)"
+    },
+    {
+      "name": "Euphoric",
+      "multiplier": "x0.18",
+      "type": "",
+      "description": "",
+      "color": "rgb(254, 234, 116)"
+    },
+    {
+      "name": "Explosive",
+      "multiplier": "x0.00",
+      "type": "Ability",
+      "description": "Causes user to explode after ticking countdown, killing the user and damaging NPCs in the vicinity",
+      "color": "rgb(254, 75, 64)"
+    },
+    {
+      "name": "Focused",
+      "multiplier": "x0.16",
+      "type": "",
+      "description": "",
+      "color": "rgb(117, 241, 253)"
+    },
+    {
+      "name": "Foggy",
+      "multiplier": "x0.36",
+      "type": "",
+      "description": "",
+      "color": "rgb(176, 176, 175)"
+    },
+    {
+      "name": "Gingeritis",
+      "multiplier": "x0.20",
+      "type": "Cosmetic",
+      "description": "Causes user to have red hair.",
+      "color": "rgb(254, 136, 41)"
+    },
+    {
+      "name": "Glowing",
+      "multiplier": "x0.48",
+      "type": "Cosmetic",
+      "description": "Causes user to have a radioactive glow.",
+      "color": "rgb(133, 228, 89)"
+    },
+    {
+      "name": "Jennerising",
+      "multiplier": "x0.42",
+      "type": "Cosmetic",
+      "description": "Causes user to appear female.",
+      "color": "rgb(254, 141, 248)"
+    },
+    {
+      "name": "Laxative",
+      "multiplier": "x0.00",
+      "type": "Cosmetic",
+      "description": "Causes user to constantly soil themselves.",
+      "color": "rgb(118, 60, 37)"
+    },
+    {
+      "name": "Lethal",
+      "multiplier": "",
+      "type": "",
+      "description": "",
+      "color": "rgb(159, 43, 34)"
+    },
+    {
+      "name": "Long Faced",
+      "multiplier": "x0.52",
+      "type": "Cosmetic",
+      "description": "Causes user's neck and face to grow.",
+      "color": "rgb(254, 217, 97)"
+    },
+    {
+      "name": "Munchies",
+      "multiplier": "x0.12",
+      "type": "",
+      "description": "",
+      "color": "rgb(201, 110, 87)"
+    },
+    {
+      "name": "Paranoia",
+      "multiplier": "x0.00",
+      "type": "",
+      "description": "",
+      "color": "rgb(196, 103, 98)"
+    },
+    {
+      "name": "Refreshing",
+      "multiplier": "x0.14",
+      "type": "",
+      "description": "",
+      "color": "rgb(178, 254, 152)"
+    },
+    {
+      "name": "Schizophrenia",
+      "multiplier": "x0.00",
+      "type": "",
+      "description": "",
+      "color": "rgb(100, 90, 253)"
+    },
+    {
+      "name": "Sedating",
+      "multiplier": "x0.26",
+      "type": "Cosmetic",
+      "description": "Causes user to have a vignette around screen and mouse smoothing",
+      "color": "rgb(107, 95, 216)"
+    },
+    {
+      "name": "Seizure-Inducing",
+      "multiplier": "x0.00",
+      "type": "Cosmetic",
+      "description": "Causes user to have a seizure and shake on the ground.",
+      "color": "rgb(254, 233, 0)"
+    },
+    {
+      "name": "Shrinking",
+      "multiplier": "x0.60",
+      "type": "Cosmetic",
+      "description": "Causes user to shrink.",
+      "color": "rgb(182, 254, 218)"
+    },
+    {
+      "name": "Slippery",
+      "multiplier": "x0.34",
+      "type": "Ability",
+      "description": "Causes user to have sluggish, slippery movement.",
+      "color": "rgb(162, 223, 253)"
+    },
+    {
+      "name": "Smelly",
+      "multiplier": "x0.00",
+      "type": "Cosmetic",
+      "description": "Causes user to have a stinky cloud around them.",
+      "color": "rgb(125, 188, 49)"
+    },
+    {
+      "name": "Sneaky",
+      "multiplier": "x0.24",
+      "type": "",
+      "description": "",
+      "color": "rgb(123, 123, 123)"
+    },
+    {
+      "name": "Spicy",
+      "multiplier": "x0.38",
+      "type": "Cosmetic",
+      "description": "Causes user's head to light on fire.",
+      "color": "rgb(254, 107, 76)"
+    },
+    {
+      "name": "Thought-Provoking",
+      "multiplier": "x0.44",
+      "type": "Cosmetic",
+      "description": "Causes user's head to grow in size.",
+      "color": "rgb(254, 160, 203)"
+    },
+    {
+      "name": "Toxic",
+      "multiplier": "x0.00",
+      "type": "Cosmetic",
+      "description": "Causes user to vomit.",
+      "color": "rgb(95, 154, 49)"
+    },
+    {
+      "name": "Tropic Thunder",
+      "multiplier": "x0.46",
+      "type": "Cosmetic",
+      "description": "Causes user to have black skin.",
+      "color": "rgb(254, 159, 71)"
+    },
+    {
+      "name": "Zombifying",
+      "multiplier": "x0.58",
+      "type": "Cosmetic",
+      "description": "Causes user to have green skin and have a zombie-like voice.",
+      "color": "rgb(113, 171, 93)"
+    }
+  ]
+}

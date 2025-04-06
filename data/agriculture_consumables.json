@@ -1,0 +1,53 @@
+{
+  "agriculture_consumables": {
+    "weed": {
+      "soils": {
+        "Soil": {"cost": 10, "capacity": 1},
+        "Long-Life Soil": {"cost": 30, "capacity": 2},
+        "Extra Long-Life soil": {"cost": 60, "capacity": 3}
+      },
+      "seeds": {
+        "OGKush": {"cost": 30, "product": "ogkush"},
+        "SourDiesel": {"cost": 35, "product": "sourdiesel"},
+        "GreenCrack": {"cost": 40, "product": "greencrack"},
+        "GranddaddyPurple": {"cost": 45, "product": "granddaddypurple"}
+      },
+      "additives": {
+        "PGR": {"cost": 30, "yield_increase": true},
+        "Speedgrow": {"cost": 30, "yield_increase": false},
+        "Fertilizer": {"cost": 30, "yield_increase": false}
+      },
+      "base_yield": 12,
+      "pgr_yield": 16
+    },
+    "cocaine": {
+      "soils": {
+        "Soil": {"cost": 10, "capacity": 1},
+        "LongLifeSoil": {"cost": 30, "capacity": 2},
+        "ExtraLongLifesoil": {"cost": 60, "capacity": 3}
+      },
+      "seeds": {
+        "CocaSeed": {"cost": 80, "product": "cocaine"}
+      },
+      "additives": {
+        "PGR": {"cost": 30, "yield_increase": true},
+        "Speedgrow": {"cost": 30, "yield_increase": false},
+        "Fertilizer": {"cost": 30, "yield_increase": false}
+      },
+      "base_yield": 9,
+      "pgr_yield": 16
+    },
+    "meth": {
+      "chemicals": {
+        "Acid": {"cost": 40},
+        "Phosphorus": {"cost": 40}
+      },
+      "pseudo": {
+        "LowQualityPseudo": {"cost": 60},
+        "Pseudo": {"cost": 80},
+        "HighQualityPseudo": {"cost": 110}
+      },
+      "yield": 10
+    }
+  }
+}

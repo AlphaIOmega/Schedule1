@@ -1,0 +1,566 @@
+{% extends "base.html" %}
+
+{% block title %}All Products - Drug Lab{% endblock %}
+
+{% block head %}
+<style>
+    /* Additional styles specific to this page */
+    .filter-section {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+    }
+    
+    .product-badge {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 10;
+    }
+    
+    .mix-count-badge {
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        background-color: #333;
+        color: white;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .mix-count-badge i {
+        font-size: 1rem;
+    }
+    
+    .mix-count-0 {
+        background-color: #4CAF50; /* Green for base products */
+    }
+    
+    .mix-count-1 {
+        background-color: #8BC34A; /* Light green */
+    }
+    
+    .mix-count-2 {
+        background-color: #CDDC39; /* Lime */
+    }
+    
+    .mix-count-3 {
+        background-color: #FFEB3B; /* Yellow */
+    }
+    
+    .mix-count-4 {
+        background-color: #FFC107; /* Amber */
+    }
+    
+    .mix-count-5 {
+        background-color: #FF9800; /* Orange */
+    }
+    
+    .mix-count-6 {
+        background-color: #FF5722; /* Deep Orange */
+    }
+    
+    .mix-count-7 {
+        background-color: #F44336; /* Red */
+    }
+    
+    .mix-count-8 {
+        background-color: #E91E63; /* Pink */
+    }
+    
+    .mix-count-9 {
+        background-color: #9C27B0; /* Purple */
+    }
+    
+    .mix-count-10-plus {
+        background-color: #673AB7; /* Deep Purple */
+    }
+    
+    /* Advanced filter styles */
+    .advanced-filters {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        display: none;
+    }
+    
+    .advanced-filters.active {
+        display: block;
+    }
+    
+    .toggle-filters {
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+    .toggle-filters:hover {
+        background-color: #004499;
+    }
+    
+    .effects-filter {
+        margin-top: 15px;
+    }
+    
+    .effects-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .effect-tag {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 2px solid transparent;
+    }
+    
+    .effect-tag:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .effect-tag.selected {
+        background-color: #0066cc;
+        color: white;
+        border: 2px solid #004499;
+    }
+    
+    .mix-count-filter {
+        margin-top: 15px;
+    }
+    
+    .slider-container {
+        padding: 0 10px;
+        margin-top: 10px;
+    }
+    
+    .double-range-slider {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .range-display {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    
+    .filter-stats {
+        margin-top: 15px;
+        font-style: italic;
+        color: #666;
+    }
+    
+    /* For dark mode */
+    body.dark-mode .advanced-filters {
+        background-color: #1e1e1e;
+    }
+    
+    body.dark-mode .effect-tag {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
+    
+    body.dark-mode .effect-tag:hover {
+        background-color: #3a3a3a;
+    }
+    
+    body.dark-mode .effect-tag.selected {
+        background-color: #0066cc;
+        color: white;
+    }
+    
+    /* Add a little CSS for the icons */
+    .icon {
+        font-size: 0.8rem;
+        margin-right: 4px;
+    }
+    
+    /* Add clearfix for better layout */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2>Product List</h2>
+
+<div class="filter-section">
+    <div class="search-container">
+        <input type="text" id="product-search" placeholder="Search products...">
+    </div>
+    <div class="filter-controls">
+        <select id="product-sort">
+            <option value="name-asc">Sort by Name (A-Z)</option>
+            <option value="name-desc">Sort by Name (Z-A)</option>
+            <option value="price-asc">Sort by Price (Low to High)</option>
+            <option value="price-desc">Sort by Price (High to Low)</option>
+            <option value="mix-asc">Sort by Mix Count (Low to High)</option>
+            <option value="mix-desc">Sort by Mix Count (High to Low)</option>
+            <option value="efficiency-desc">Sort by Price/Mix Efficiency (High to Low)</option>
+        </select>
+        <select id="drug-type-filter">
+            <option value="all">All Drug Types</option>
+            <option value="0">Weed</option>
+            <option value="1">Meth</option>
+            <option value="2">Cocaine</option>
+        </select>
+    </div>
+    
+    <button class="toggle-filters">Show Advanced Filters</button>
+    
+    <div class="advanced-filters">
+        <div class="effects-filter">
+            <h3>Filter by Effects</h3>
+            <p>Select one or more effects to filter products:</p>
+            
+            <div class="effects-list">
+                {% for effect in all_effects %}
+                    <div class="effect-tag" data-effect="{{ effect }}">
+                        {{ effect }}
+                        {% if effect in effects_data %}
+                            <span class="effect-count">({{ effects_data[effect].count }})</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="mix-count-filter">
+            <h3>Filter by Mix Count</h3>
+            <p>Filter products by the number of mixes required:</p>
+            
+            <div class="slider-container">
+                <input type="range" min="0" max="{{ max_mix_count }}" value="{{ max_mix_count }}" class="slider" id="mix-count-slider">
+                <div class="range-display">
+                    Mix Count: ≤ <span id="mix-count-value">{{ max_mix_count }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="filter-stats">
+            <p>Showing <span id="filtered-count">{{ products|length }}</span> of {{ products|length }} products</p>
+        </div>
+    </div>
+</div>
+
+<div class="product-grid">
+    {% for product_id in products %}
+        <div class="product-card" 
+             data-id="{{ product_id }}" 
+             data-price="{{ price_map.get(product_id, 0) }}"
+             data-type="{{ product_details.get(product_id, {}).get('DrugType', -1) }}"
+             data-mix-count="{{ mix_counts.get(product_id, 0) }}"
+             data-effects="{% if product_id in product_details and product_details[product_id].get('Properties') %}{{ product_details[product_id].Properties|join(',') }}{% endif %}">
+            
+            {% if product_id in product_details %}
+                {% set product = product_details[product_id] %}
+                {% if product.AppearanceSettings %}
+    <div class="product-color" style="background: linear-gradient(135deg, 
+        rgb({{ product.AppearanceSettings.MainColor.r }}, 
+            {{ product.AppearanceSettings.MainColor.g }}, 
+            {{ product.AppearanceSettings.MainColor.b }}) 0%, 
+        rgb({{ product.AppearanceSettings.SecondaryColor.r }}, 
+            {{ product.AppearanceSettings.SecondaryColor.g }}, 
+            {{ product.AppearanceSettings.SecondaryColor.b }}) 100%);">
+    </div>
+{% else %}
+    <div class="product-color product-color-default"></div>
+{% endif %}
+
+                <h3 class="product-name">{{ product.Name }}</h3>
+                
+                <!-- Mix Count Badge -->
+                {% set mix_count = mix_counts.get(product_id, 0) %}
+                {% set mix_class = "mix-count-" ~ mix_count if mix_count < 10 else "mix-count-10-plus" %}
+                <div class="mix-count-badge {{ mix_class }}">
+                    <i class="icon">🧪</i> {{ mix_count }} {% if mix_count == 1 %}mix{% else %}mixes{% endif %}
+                </div>
+                
+                <div class="product-type-badge type-{{ product.DrugType }}">
+                    {% if product.DrugType == 0 %}
+                        Weed
+                    {% elif product.DrugType == 1 %}
+                        Meth
+                    {% elif product.DrugType == 2 %}
+                        Cocaine
+                    {% else %}
+                        Unknown
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="product-color product-color-default"></div>
+                <h3 class="product-name">{{ product_id }}</h3>
+            {% endif %}
+            
+            <p class="product-price">${{ price_map.get(product_id, 0) }}</p>
+            <a href="{{ url_for('product_detail', product_id=product_id) }}" class="btn">View Details</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function updateAgricultureCosts() {
+        const drugType = '{{ drug_type }}';
+        
+        // Get selected options
+        let soilType = null;
+        let additive = null;
+        let pseudoType = null;
+        
+        if (drugType === 'weed' || drugType === 'cocaine') {
+            const soilSelect = document.getElementById('soil-type');
+            const additiveSelect = document.getElementById('additive');
+            
+            if (soilSelect) soilType = soilSelect.value;
+            if (additiveSelect) additive = additiveSelect.value;
+        }
+        
+        if (drugType === 'meth') {
+            const pseudoSelect = document.getElementById('pseudo-type');
+            if (pseudoSelect) pseudoType = pseudoSelect.value;
+        }
+        
+        // Calculate mixing cost with additional gasoline cost for cocaine
+        let mixingCost = parseFloat(document.getElementById('base-ingredient-cost').textContent);
+        
+        // Send AJAX request to calculate costs
+        fetch('/api/calculate-agriculture-cost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                drug_type: drugType,
+                soil_type: soilType,
+                additive: additive,
+                pseudo_type: pseudoType
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Update the agriculture cost display elements
+            document.getElementById('agriculture-cost').textContent = data.total_cost.toFixed(2);
+            document.getElementById('agriculture-yield').textContent = data.yield;
+            document.getElementById('unit-cost').textContent = data.unit_cost.toFixed(2);
+            
+            // Update total cost fields
+            document.getElementById('total-agriculture-cost').textContent = agricultureCost.toFixed(2);
+            document.getElementById('total-mixing-cost').textContent = mixingCost.toFixed(2);
+            
+            const combinedCost = agricultureCost + mixingCost;
+            document.getElementById('combined-cost').textContent = combinedCost.toFixed(2);
+            
+            // Update profit calculations
+            const sellingPrice = {{ price }};
+            const netProfit = sellingPrice - combinedCost;
+            const profitPercentage = (netProfit / sellingPrice * 100).toFixed(1);
+            
+            document.getElementById('net-profit').textContent = netProfit.toFixed(2);
+            document.getElementById('profit-percentage').textContent = profitPercentage;
+            
+            // Add classes for profit/loss indication
+            const netProfitElement = document.getElementById('net-profit');
+            if (netProfit > 0) {
+                netProfitElement.classList.add('profit-positive');
+                netProfitElement.classList.remove('profit-negative');
+            } else {
+                netProfitElement.classList.add('profit-negative');
+                netProfitElement.classList.remove('profit-positive');
+            }
+        })
+        .catch(error => {
+            console.error('Error calculating agriculture costs:', error);
+        });
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('product-search');
+        const sortSelect = document.getElementById('product-sort');
+        const typeFilter = document.getElementById('drug-type-filter');
+        const productCards = document.querySelectorAll('.product-card');
+        const productGrid = document.querySelector('.product-grid');
+        const toggleFiltersBtn = document.querySelector('.toggle-filters');
+        const advancedFilters = document.querySelector('.advanced-filters');
+        const effectTags = document.querySelectorAll('.effect-tag');
+        const mixCountSlider = document.getElementById('mix-count-slider');
+        const mixCountValue = document.getElementById('mix-count-value');
+        const filteredCount = document.getElementById('filtered-count');
+        
+        // Toggle advanced filters
+        toggleFiltersBtn.addEventListener('click', function() {
+            advancedFilters.classList.toggle('active');
+            this.textContent = advancedFilters.classList.contains('active') 
+                ? 'Hide Advanced Filters' 
+                : 'Show Advanced Filters';
+        });
+        
+        // Mix count slider
+        mixCountSlider.addEventListener('input', function() {
+            mixCountValue.textContent = this.value;
+            applyFilters();
+        });
+        
+        // Effect tag selection
+        effectTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                applyFilters();
+            });
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            applyFilters();
+        });
+        
+        // Sort functionality
+        sortSelect.addEventListener('change', function() {
+            applyFilters();
+        });
+        
+        // Filter by drug type
+        typeFilter.addEventListener('change', function() {
+            applyFilters();
+        });
+        
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const sortValue = sortSelect.value;
+            const typeValue = typeFilter.value;
+            const maxMixCount = parseInt(mixCountSlider.value);
+            const selectedEffects = Array.from(document.querySelectorAll('.effect-tag.selected'))
+                .map(tag => tag.dataset.effect);
+            
+            let visibleCount = 0;
+            
+            // Step 1: Filter the products
+            productCards.forEach(card => {
+                const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                const productType = card.dataset.type;
+                const mixCount = parseInt(card.dataset.mixCount);
+                const productEffects = card.dataset.effects ? card.dataset.effects.split(',') : [];
+                
+                // Check search term
+                const matchesSearch = productName.includes(searchTerm);
+                
+                // Check drug type
+                const matchesType = typeValue === 'all' || productType === typeValue;
+                
+                // Check mix count
+                const matchesMixCount = mixCount <= maxMixCount;
+                
+                // Check effects
+                let matchesEffects = true;
+                if (selectedEffects.length > 0) {
+                    // Product must have ALL selected effects
+                    matchesEffects = selectedEffects.every(effect => productEffects.includes(effect));
+                }
+                
+                // Show or hide based on all filters
+                if (matchesSearch && matchesType && matchesMixCount && matchesEffects) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update filtered count
+            filteredCount.textContent = visibleCount;
+            
+            // Step 2: Sort the visible products
+            const productsArray = Array.from(productCards).filter(card => card.style.display !== 'none');
+            
+            switch(sortValue) {
+                case 'name-asc':
+                    productsArray.sort((a, b) => {
+                        return a.querySelector('.product-name').textContent.localeCompare(
+                            b.querySelector('.product-name').textContent
+                        );
+                    });
+                    break;
+                case 'name-desc':
+                    productsArray.sort((a, b) => {
+                        return b.querySelector('.product-name').textContent.localeCompare(
+                            a.querySelector('.product-name').textContent
+                        );
+                    });
+                    break;
+                case 'price-asc':
+                    productsArray.sort((a, b) => {
+                        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+                    });
+                    break;
+                case 'price-desc':
+                    productsArray.sort((a, b) => {
+                        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+                    });
+                    break;
+                case 'mix-asc':
+                    productsArray.sort((a, b) => {
+                        return parseInt(a.dataset.mixCount) - parseInt(b.dataset.mixCount);
+                    });
+                    break;
+                case 'mix-desc':
+                    productsArray.sort((a, b) => {
+                        return parseInt(b.dataset.mixCount) - parseInt(a.dataset.mixCount);
+                    });
+                    break;
+                case 'efficiency-desc':
+                    productsArray.sort((a, b) => {
+                        const aPrice = parseInt(a.dataset.price);
+                        const bPrice = parseInt(b.dataset.price);
+                        const aMixCount = Math.max(1, parseInt(a.dataset.mixCount)); // Avoid division by zero
+                        const bMixCount = Math.max(1, parseInt(b.dataset.mixCount)); // Avoid division by zero
+                        
+                        return (bPrice / bMixCount) - (aPrice / aMixCount);
+                    });
+                    break;
+            }
+            
+            // Re-append sorted items to the grid
+            productsArray.forEach(card => {
+                productGrid.appendChild(card);
+            });
+        }
+    });
+</script>
+{% endblock %}

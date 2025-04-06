@@ -1,0 +1,20 @@
+{
+  "base_costs": {
+    "cuke": 2,
+    "banana": 2,
+    "paracetamol": 3,
+    "donut": 3,
+    "viagra": 4,
+    "mouthwash": 4,
+    "gasoline": 5,
+    "megabean": 7,
+    "chili": 7,
+    "battery": 8,
+    "addy": 9,
+    "horsesemen": 9,
+    "flumedicine": 5,
+    "iodine": 8,
+    "motoroil": 6,
+    "energydrink": 6
+  }
+}

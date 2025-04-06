@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Drug Lab - Product Viewer{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">Drug Lab - Product Viewer</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/">All Products</a></li>
+                    <li class="theme-toggle">
+                        <select id="theme-select">
+                            <option value="light">Light Mode</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Drug Lab - Product Viewer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggling functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeSelect = document.getElementById('theme-select');
+            
+            // Check if user has a saved preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeSelect.value = 'dark';
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeSelect.value = 'light';
+            }
+            
+            // Add event listener for theme change
+            themeSelect.addEventListener('change', function() {
+                if (this.value === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                }
+                
+                // If we're on a product detail page, update property pill colors
+                if (typeof updatePropertyPillColors === 'function') {
+                    updatePropertyPillColors();
+                }
+            });
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>
