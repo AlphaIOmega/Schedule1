@@ -1,0 +1,29 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Fruity Grool",
+    "ID": "fruitygrool",
+    "DrugType": 2,
+    "Properties": [
+        "slippery",
+        "spicy",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 197,
+            "b": 185,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 226,
+            "g": 201,
+            "b": 201,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Dark Piss",
+    "ID": "darkpiss",
+    "DrugType": 2,
+    "Properties": [
+        "refreshing",
+        "gingeritis",
+        "balding",
+        "slippery",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 244,
+            "g": 255,
+            "b": 241,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 239,
+            "g": 231,
+            "b": 191,
+            "a": 255
+        }
+    }
+}

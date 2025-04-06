@@ -1,0 +1,25 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Hairy Punch",
+    "ID": "hairypunch",
+    "DrugType": 2,
+    "Properties": [
+        "sedating"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 206,
+            "g": 204,
+            "b": 228,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 162,
+            "g": 157,
+            "b": 204,
+            "a": 255
+        }
+    }
+}

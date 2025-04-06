@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Aspen Death",
+    "ID": "aspendeath",
+    "DrugType": 0,
+    "Properties": [
+        "energizing",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 109,
+            "g": 146,
+            "b": 81,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 187,
+            "g": 189,
+            "b": 88,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 148,
+            "g": 167,
+            "b": 84,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 87,
+            "g": 116,
+            "b": 64,
+            "a": 255
+        }
+    }
+}

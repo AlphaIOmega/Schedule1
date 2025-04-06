@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Gorilla Stink",
+    "ID": "gorillastink",
+    "DrugType": 0,
+    "Properties": [
+        "sedating",
+        "slippery"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 83,
+            "g": 88,
+            "b": 95,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 117,
+            "g": 132,
+            "b": 154,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 100,
+            "g": 110,
+            "b": 124,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 66,
+            "g": 70,
+            "b": 76,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Extreme Urkle",
+    "ID": "extremeurkle",
+    "DrugType": 2,
+    "Properties": [
+        "sneaky",
+        "athletic",
+        "thoughtprovoking",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 174,
+            "g": 199,
+            "b": 215,
+            "a": 255
+        }
+    }
+}

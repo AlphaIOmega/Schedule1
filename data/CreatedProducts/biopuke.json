@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Bio Puke",
+    "ID": "biopuke",
+    "DrugType": 2,
+    "Properties": [
+        "Euphoric",
+        "toxic",
+        "disorienting",
+        "sneaky",
+        "slippery",
+        "brighteyed",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 252,
+            "b": 237,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 230,
+            "b": 186,
+            "a": 255
+        }
+    }
+}

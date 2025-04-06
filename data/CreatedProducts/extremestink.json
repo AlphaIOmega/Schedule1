@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Extreme Stink",
+    "ID": "extremestink",
+    "DrugType": 2,
+    "Properties": [
+        "refreshing",
+        "toxic",
+        "disorienting",
+        "sneaky",
+        "seizure",
+        "slippery",
+        "brighteyed",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 244,
+            "g": 255,
+            "b": 241,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 207,
+            "g": 234,
+            "b": 193,
+            "a": 255
+        }
+    }
+}

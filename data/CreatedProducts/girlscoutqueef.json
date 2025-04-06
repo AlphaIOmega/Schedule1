@@ -1,0 +1,27 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Girl Scout Queef",
+    "ID": "girlscoutqueef",
+    "DrugType": 2,
+    "Properties": [
+        "gingeritis",
+        "sedating",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 224,
+            "b": 199,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 217,
+            "g": 192,
+            "b": 192,
+            "a": 255
+        }
+    }
+}

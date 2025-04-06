@@ -1,0 +1,39 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Bio Punch",
+    "ID": "biopunch",
+    "DrugType": 0,
+    "Properties": [
+        "energizing",
+        "sneaky",
+        "athletic"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 109,
+            "g": 146,
+            "b": 81,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 127,
+            "g": 147,
+            "b": 94,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 118,
+            "g": 146,
+            "b": 87,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 87,
+            "g": 116,
+            "b": 64,
+            "a": 255
+        }
+    }
+}

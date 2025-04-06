@@ -1,0 +1,40 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Aspen Rhino",
+    "ID": "aspenrhino",
+    "DrugType": 0,
+    "Properties": [
+        "munchies",
+        "balding",
+        "athletic",
+        "slippery"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 106,
+            "g": 101,
+            "b": 72,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 168,
+            "g": 124,
+            "b": 72,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 137,
+            "g": 112,
+            "b": 72,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 84,
+            "g": 80,
+            "b": 57,
+            "a": 255
+        }
+    }
+}

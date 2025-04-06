@@ -1,0 +1,28 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Extreme Mint",
+    "ID": "extrememint",
+    "DrugType": 2,
+    "Properties": [
+        "gingeritis",
+        "brighteyed",
+        "tropicthunder",
+        "antigravity"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 224,
+            "b": 199,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 229,
+            "g": 204,
+            "b": 169,
+            "a": 255
+        }
+    }
+}

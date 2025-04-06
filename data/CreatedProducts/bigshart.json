@@ -1,0 +1,30 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Big Shart",
+    "ID": "bigshart",
+    "DrugType": 2,
+    "Properties": [
+        "gingeritis",
+        "sneaky",
+        "slippery",
+        "spicy",
+        "jennerising",
+        "thoughtprovoking"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 228,
+            "g": 204,
+            "b": 185,
+            "a": 255
+        }
+    }
+}

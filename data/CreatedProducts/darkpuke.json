@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Dark Puke",
+    "ID": "darkpuke",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "disorienting",
+        "balding",
+        "athletic",
+        "spicy",
+        "brighteyed",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 213,
+            "g": 228,
+            "b": 201,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 207,
+            "b": 179,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "California Slime",
+    "ID": "californiaslime",
+    "DrugType": 2,
+    "Properties": [
+        "sneaky",
+        "jennerising"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 202,
+            "g": 156,
+            "b": 199,
+            "a": 255
+        }
+    }
+}

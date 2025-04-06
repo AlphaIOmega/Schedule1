@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Death Cheese",
+    "ID": "deathcheese",
+    "DrugType": 0,
+    "Properties": [
+        "gingeritis",
+        "sneaky"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 99,
+            "g": 106,
+            "b": 85,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 147,
+            "g": 123,
+            "b": 80,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 123,
+            "g": 114,
+            "b": 82,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 79,
+            "g": 84,
+            "b": 68,
+            "a": 255
+        }
+    }
+}

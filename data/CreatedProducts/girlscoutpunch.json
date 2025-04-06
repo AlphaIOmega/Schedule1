@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Girl Scout Punch",
+    "ID": "girlscoutpunch",
+    "DrugType": 2,
+    "Properties": [
+        "foggy",
+        "brighteyed"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 224,
+            "g": 224,
+            "b": 224,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 197,
+            "g": 220,
+            "b": 223,
+            "a": 255
+        }
+    }
+}

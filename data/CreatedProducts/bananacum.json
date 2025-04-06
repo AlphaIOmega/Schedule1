@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Banana Cum",
+    "ID": "bananacum",
+    "DrugType": 0,
+    "Properties": [
+        "sedating",
+        "foggy"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 83,
+            "g": 88,
+            "b": 95,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 121,
+            "g": 118,
+            "b": 131,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 102,
+            "g": 103,
+            "b": 113,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 66,
+            "g": 70,
+            "b": 76,
+            "a": 255
+        }
+    }
+}

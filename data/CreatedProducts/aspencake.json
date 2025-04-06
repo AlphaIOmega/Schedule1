@@ -1,0 +1,25 @@
+{
+    "DataType": "MethProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Aspen Cake",
+    "ID": "aspencake",
+    "DrugType": 1,
+    "Properties": [
+        "energizing"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 214,
+            "g": 255,
+            "b": 196,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 204,
+            "g": 255,
+            "b": 182,
+            "a": 255
+        }
+    }
+}
