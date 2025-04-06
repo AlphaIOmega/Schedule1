@@ -1,0 +1,39 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Wedding Cookies",
+    "ID": "weddingcookies",
+    "DrugType": 0,
+    "Properties": [
+        "paranoia",
+        "energizing",
+        "thoughtprovoking"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 106,
+            "g": 99,
+            "b": 78,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 142,
+            "g": 142,
+            "b": 95,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 124,
+            "g": 120,
+            "b": 86,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 84,
+            "g": 79,
+            "b": 62,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Thick Cookies",
+    "ID": "thickcookies",
+    "DrugType": 2,
+    "Properties": [
+        "munchies",
+        "energizing",
+        "balding",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 248,
+            "g": 236,
+            "b": 233,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 224,
+            "g": 225,
+            "b": 192,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Wedding Cock",
+    "ID": "weddingcock",
+    "DrugType": 2,
+    "Properties": [
+        "munchies",
+        "gingeritis",
+        "sneaky",
+        "balding",
+        "slippery",
+        "brighteyed",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 248,
+            "g": 236,
+            "b": 233,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 217,
+            "g": 199,
+            "b": 195,
+            "a": 255
+        }
+    }
+}

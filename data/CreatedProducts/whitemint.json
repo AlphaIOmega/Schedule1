@@ -1,0 +1,28 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "White Mint",
+    "ID": "whitemint",
+    "DrugType": 2,
+    "Properties": [
+        "smelly",
+        "Euphoric",
+        "energizing",
+        "sedating"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 237,
+            "g": 246,
+            "b": 228,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 241,
+            "g": 246,
+            "b": 220,
+            "a": 255
+        }
+    }
+}

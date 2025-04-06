@@ -1,0 +1,25 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Wedding Crack",
+    "ID": "weddingcrack",
+    "DrugType": 2,
+    "Properties": [
+        "caloriedense"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 222,
+            "b": 252,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 193,
+            "b": 250,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Ultra Fuel",
+    "ID": "ultrafuel",
+    "DrugType": 2,
+    "Properties": [
+        "sneaky",
+        "caloriedense",
+        "slippery",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 228,
+            "g": 203,
+            "b": 226,
+            "a": 255
+        }
+    }
+}

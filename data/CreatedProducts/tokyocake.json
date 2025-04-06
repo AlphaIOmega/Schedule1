@@ -1,0 +1,39 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Tokyo Cake",
+    "ID": "tokyocake",
+    "DrugType": 0,
+    "Properties": [
+        "toxic",
+        "sedating",
+        "balding"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 91,
+            "g": 116,
+            "b": 63,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 104,
+            "g": 114,
+            "b": 88,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 97,
+            "g": 115,
+            "b": 75,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 72,
+            "g": 92,
+            "b": 50,
+            "a": 255
+        }
+    }
+}

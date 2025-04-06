@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Ultra Diesel",
+    "ID": "ultradiesel",
+    "DrugType": 2,
+    "Properties": [
+        "paranoia",
+        "refreshing",
+        "toxic",
+        "seizure",
+        "slippery",
+        "brighteyed",
+        "tropicthunder",
+        "glowie"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 247,
+            "g": 234,
+            "b": 238,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 241,
+            "g": 239,
+            "b": 232,
+            "a": 255
+        }
+    }
+}
