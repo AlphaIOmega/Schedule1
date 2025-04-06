@@ -1,0 +1,25 @@
+{
+    "DataType": "MethProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Ice Cream Cake",
+    "ID": "icecreamcake",
+    "DrugType": 1,
+    "Properties": [
+        "foggy"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 207,
+            "g": 207,
+            "b": 207,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 215,
+            "g": 215,
+            "b": 215,
+            "a": 255
+        }
+    }
+}

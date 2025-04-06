@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Miracle Balls",
+    "ID": "miracleballs",
+    "DrugType": 0,
+    "Properties": [
+        "gingeritis",
+        "thoughtprovoking"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 139,
+            "g": 110,
+            "b": 61,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 228,
+            "g": 142,
+            "b": 113,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 183,
+            "g": 126,
+            "b": 87,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 111,
+            "g": 88,
+            "b": 48,
+            "a": 255
+        }
+    }
+}

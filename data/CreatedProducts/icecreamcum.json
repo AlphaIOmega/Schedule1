@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Ice Cream Cum",
+    "ID": "icecreamcum",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "gingeritis",
+        "sedating",
+        "balding",
+        "slippery",
+        "thoughtprovoking",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 213,
+            "g": 228,
+            "b": 201,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 211,
+            "b": 171,
+            "a": 255
+        }
+    }
+}

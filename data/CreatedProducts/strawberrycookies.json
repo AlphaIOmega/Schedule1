@@ -1,0 +1,27 @@
+{
+    "DataType": "MethProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Strawberry Cookies",
+    "ID": "strawberrycookies",
+    "DrugType": 1,
+    "Properties": [
+        "athletic",
+        "slippery",
+        "schizophrenic"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 172,
+            "g": 222,
+            "b": 255,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 185,
+            "g": 229,
+            "b": 255,
+            "a": 255
+        }
+    }
+}

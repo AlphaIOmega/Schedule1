@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Shiny Smegma",
+    "ID": "shinysmegma",
+    "DrugType": 2,
+    "Properties": [
+        "spicy",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 197,
+            "b": 185,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 162,
+            "b": 86,
+            "a": 255
+        }
+    }
+}

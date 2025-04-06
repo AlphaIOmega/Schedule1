@@ -1,0 +1,30 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "OG Cock",
+    "ID": "ogcock",
+    "DrugType": 2,
+    "Properties": [
+        "sneaky",
+        "slippery",
+        "brighteyed",
+        "tropicthunder",
+        "antigravity",
+        "cyclopean"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 187,
+            "g": 205,
+            "b": 215,
+            "a": 255
+        }
+    }
+}

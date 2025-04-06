@@ -1,0 +1,29 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "OG Punch",
+    "ID": "ogpunch",
+    "DrugType": 2,
+    "Properties": [
+        "slippery",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 218,
+            "g": 242,
+            "b": 255,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 217,
+            "g": 203,
+            "b": 234,
+            "a": 255
+        }
+    }
+}

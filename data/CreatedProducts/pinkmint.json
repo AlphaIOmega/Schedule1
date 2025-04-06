@@ -1,0 +1,25 @@
+{
+    "DataType": "MethProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Pink Mint",
+    "ID": "pinkmint",
+    "DrugType": 1,
+    "Properties": [
+        "jennerising"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 163,
+            "b": 251,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 198,
+            "b": 252,
+            "a": 255
+        }
+    }
+}

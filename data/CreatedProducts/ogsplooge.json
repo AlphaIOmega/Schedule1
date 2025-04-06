@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "OG Splooge",
+    "ID": "ogsplooge",
+    "DrugType": 2,
+    "Properties": [
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 205,
+            "b": 159,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 188,
+            "b": 84,
+            "a": 255
+        }
+    }
+}

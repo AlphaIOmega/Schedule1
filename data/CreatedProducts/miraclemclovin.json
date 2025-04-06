@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Miracle McLovin",
+    "ID": "miraclemclovin",
+    "DrugType": 2,
+    "Properties": [
+        "energizing",
+        "athletic"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 228,
+            "g": 255,
+            "b": 217,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 183,
+            "g": 238,
+            "b": 211,
+            "a": 255
+        }
+    }
+}

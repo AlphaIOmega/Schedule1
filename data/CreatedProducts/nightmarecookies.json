@@ -1,0 +1,38 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Nightmare Cookies",
+    "ID": "nightmarecookies",
+    "DrugType": 0,
+    "Properties": [
+        "sneaky",
+        "sedating"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 83,
+            "g": 88,
+            "b": 95,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 110,
+            "g": 108,
+            "b": 103,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 96,
+            "g": 98,
+            "b": 99,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 66,
+            "g": 70,
+            "b": 76,
+            "a": 255
+        }
+    }
+}

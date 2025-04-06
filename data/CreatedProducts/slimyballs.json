@@ -1,0 +1,27 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Slimy Balls",
+    "ID": "slimyballs",
+    "DrugType": 2,
+    "Properties": [
+        "brighteyed",
+        "thoughtprovoking",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 221,
+            "g": 251,
+            "b": 255,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 229,
+            "g": 213,
+            "b": 181,
+            "a": 255
+        }
+    }
+}

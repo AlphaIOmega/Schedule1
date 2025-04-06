@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Sweet Cookies",
+    "ID": "sweetcookies",
+    "DrugType": 2,
+    "Properties": [
+        "refreshing",
+        "slippery",
+        "spicy",
+        "thoughtprovoking",
+        "tropicthunder",
+        "explosive",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 244,
+            "g": 255,
+            "b": 241,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 204,
+            "g": 245,
+            "b": 224,
+            "a": 255
+        }
+    }
+}

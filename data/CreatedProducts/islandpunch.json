@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Island Punch",
+    "ID": "islandpunch",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "disorienting",
+        "balding",
+        "spicy",
+        "brighteyed",
+        "tropicthunder",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 213,
+            "g": 228,
+            "b": 201,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 207,
+            "b": 179,
+            "a": 255
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Sexy Balls",
+    "ID": "sexyballs",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "disorienting",
+        "sneaky",
+        "slippery",
+        "thoughtprovoking",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 220,
+            "g": 220,
+            "b": 220,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 228,
+            "g": 201,
+            "b": 193,
+            "a": 255
+        }
+    }
+}

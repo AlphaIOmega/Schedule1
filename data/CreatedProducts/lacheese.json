@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "LA Cheese",
+    "ID": "lacheese",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "disorienting",
+        "balding",
+        "slippery",
+        "spicy",
+        "thoughtprovoking",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 219,
+            "b": 209,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 207,
+            "b": 179,
+            "a": 255
+        }
+    }
+}

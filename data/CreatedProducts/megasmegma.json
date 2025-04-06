@@ -1,0 +1,25 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Mega Smegma",
+    "ID": "megasmegma",
+    "DrugType": 2,
+    "Properties": [
+        "spicy"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 197,
+            "b": 185,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 181,
+            "b": 165,
+            "a": 255
+        }
+    }
+}

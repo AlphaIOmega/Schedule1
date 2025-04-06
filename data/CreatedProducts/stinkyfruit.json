@@ -1,0 +1,26 @@
+{
+    "DataType": "MethProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Stinky Fruit",
+    "ID": "stinkyfruit",
+    "DrugType": 1,
+    "Properties": [
+        "paranoia",
+        "jennerising"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 243,
+            "g": 223,
+            "b": 229,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 231,
+            "g": 146,
+            "b": 202,
+            "a": 255
+        }
+    }
+}

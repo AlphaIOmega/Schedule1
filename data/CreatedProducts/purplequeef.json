@@ -1,0 +1,28 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Purple Queef",
+    "ID": "purplequeef",
+    "DrugType": 2,
+    "Properties": [
+        "gingeritis",
+        "sedating",
+        "slippery",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 224,
+            "b": 199,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 217,
+            "g": 192,
+            "b": 192,
+            "a": 255
+        }
+    }
+}

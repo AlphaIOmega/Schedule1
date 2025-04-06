@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Strawberry Express",
+    "ID": "strawberryexpress",
+    "DrugType": 2,
+    "Properties": [
+        "balding",
+        "slippery",
+        "spicy",
+        "thoughtprovoking",
+        "tropicthunder",
+        "electrifying",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 233,
+            "g": 212,
+            "b": 175,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 210,
+            "g": 212,
+            "b": 193,
+            "a": 255
+        }
+    }
+}

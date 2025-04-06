@@ -1,0 +1,26 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Mega Puke",
+    "ID": "megapuke",
+    "DrugType": 2,
+    "Properties": [
+        "toxic",
+        "tropicthunder"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 213,
+            "g": 228,
+            "b": 201,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 191,
+            "g": 175,
+            "b": 99,
+            "a": 255
+        }
+    }
+}

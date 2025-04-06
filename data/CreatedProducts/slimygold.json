@@ -1,0 +1,42 @@
+{
+    "DataType": "WeedProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Slimy Gold",
+    "ID": "slimygold",
+    "DrugType": 0,
+    "Properties": [
+        "smelly",
+        "toxic",
+        "sedating",
+        "caloriedense",
+        "foggy",
+        "spicy"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 95,
+            "g": 113,
+            "b": 66,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 110,
+            "g": 121,
+            "b": 88,
+            "a": 255
+        },
+        "LeafColor": {
+            "r": 102,
+            "g": 117,
+            "b": 77,
+            "a": 255
+        },
+        "StemColor": {
+            "r": 76,
+            "g": 90,
+            "b": 52,
+            "a": 255
+        }
+    }
+}

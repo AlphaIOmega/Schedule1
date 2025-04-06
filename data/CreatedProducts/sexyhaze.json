@@ -1,0 +1,32 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Sexy Haze",
+    "ID": "sexyhaze",
+    "DrugType": 2,
+    "Properties": [
+        "gingeritis",
+        "caloriedense",
+        "slippery",
+        "spicy",
+        "brighteyed",
+        "jennerising",
+        "thoughtprovoking",
+        "explosive"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 224,
+            "b": 199,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 255,
+            "g": 206,
+            "b": 210,
+            "a": 255
+        }
+    }
+}

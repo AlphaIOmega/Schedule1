@@ -1,0 +1,31 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Slimy McLovin",
+    "ID": "slimymclovin",
+    "DrugType": 2,
+    "Properties": [
+        "Euphoric",
+        "balding",
+        "slippery",
+        "brighteyed",
+        "thoughtprovoking",
+        "tropicthunder",
+        "giraffying"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 255,
+            "g": 252,
+            "b": 237,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 238,
+            "g": 216,
+            "b": 151,
+            "a": 255
+        }
+    }
+}

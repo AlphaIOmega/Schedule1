@@ -1,0 +1,25 @@
+{
+    "DataType": "CocaineProductData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.3f15",
+    "Name": "Strawberry Bud",
+    "ID": "strawberrybud",
+    "DrugType": 2,
+    "Properties": [
+        "brighteyed"
+    ],
+    "AppearanceSettings": {
+        "MainColor": {
+            "r": 221,
+            "g": 251,
+            "b": 255,
+            "a": 255
+        },
+        "SecondaryColor": {
+            "r": 223,
+            "g": 251,
+            "b": 255,
+            "a": 255
+        }
+    }
+}
